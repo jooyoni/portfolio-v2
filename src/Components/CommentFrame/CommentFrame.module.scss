@@ -1,0 +1,106 @@
+.container {
+  padding: 20px 10px 10px;
+  display: flex;
+}
+.commentDetailWrap {
+  flex-grow: 1;
+  .writer {
+    color: white;
+    font-size: 14px;
+  }
+  .comment {
+    color: white;
+    margin-top: 10px;
+    padding-right: 10%;
+  }
+  .date {
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+}
+.menu {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.commentSetBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  transform: translate(-100%, 100%);
+  border-radius: 5px;
+  border: 1px solid white;
+  box-shadow: 0px 5px 15px 0px rgba(137, 136, 136, 0.95);
+  li {
+    padding: 4px 0px 4px 4px;
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+    span {
+      color: white;
+      font-size: 14px;
+    }
+  }
+}
+
+.editContainer {
+  padding: 20px 10px 10px;
+  .writer {
+    color: white;
+    font-size: 14px;
+  }
+  .commentInputWrap {
+    margin-top: 10px;
+    textarea {
+      width: 100%;
+      resize: none;
+      height: 80px;
+      border-radius: 6px;
+      padding: 2px 4px;
+      outline: none;
+      background-color: transparent;
+      color: white;
+    }
+  }
+}
+
+.editControlBtns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  li {
+    padding: 2px 4px;
+    cursor: pointer;
+    &.password {
+      margin-right: auto;
+      input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid white;
+        width: 100px;
+        padding-left: 2px;
+        color: white;
+        &::placeholder {
+          color: #dfdfdf;
+        }
+      }
+    }
+    span {
+      font-size: 14px;
+      color: white;
+    }
+    &:hover span {
+      text-decoration: underline;
+    }
+  }
+}

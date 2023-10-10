@@ -1,0 +1,159 @@
+@keyframes profileImageAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes infoTextAnimation {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+.main {
+  height: 100vh;
+  max-height: -webkit-fill-available;
+  overflow: hidden;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+.infoWrap {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+  .profileImage {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-image: url('../../assets/profile.jpg');
+    background-size: cover;
+    animation: profileImageAnimation 0.3s linear forwards;
+  }
+  .infoText {
+    margin-top: 20px;
+    span {
+      display: inline-block;
+      color: white;
+      opacity: 0;
+      font-size: 18px;
+      animation: infoTextAnimation 0.3s linear forwards; //jsx에 animation-delay 있음
+      &:nth-child(1) {
+        font-size: 40px;
+        font-weight: bold;
+      }
+      &:nth-child(3) {
+        font-size: 26px;
+      }
+    }
+  }
+}
+.contentArea {
+  display: flex;
+  overflow: scroll;
+  flex-basis: 60%;
+  height: 100%;
+  position: relative;
+  padding-right: 20px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+@keyframes navAnimation {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes shine {
+  0% {
+    filter: none;
+  }
+  100% {
+    filter: drop-shadow(3px 3px 2px #7c2de9);
+  }
+}
+@keyframes blink {
+  0%,
+  22%,
+  36%,
+  75% {
+    filter: drop-shadow(3px 3px 2px #7c2de9);
+  }
+  28%,
+  33% {
+    filter: none;
+  }
+  82%,
+  97% {
+    filter: none;
+  }
+}
+.navigation {
+  width: 80px;
+  position: sticky;
+  top: 30px;
+  height: fit-content;
+  align-self: center;
+  //   margin-bottom: 10vh;
+  z-index: 1;
+  ul {
+    li {
+      width: 80px;
+      height: 80px;
+      opacity: 0;
+      animation: navAnimation 0.1s linear forwards;
+      position: relative;
+      //   background: rgba(80, 89, 103, 0.55);
+      //   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+      a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          animation: shine 2s forwards, blink 1s infinite;
+          transition: all 0.1s linear;
+        }
+      }
+      &:hover {
+        &::after {
+          content: attr(data-content);
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(100%, -50%);
+          color: white;
+        }
+        a svg {
+          animation: shine 2s forwards;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+.content {
+  flex-grow: 1;
+  height: fit-content;
+  min-height: 100%;
+  padding: 30px 0;
+  display: flex;
+  width: calc(100% - 80px);
+  align-items: center;
+}

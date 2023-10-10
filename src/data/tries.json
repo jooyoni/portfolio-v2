@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Next.js",
+    "icon": "https://skillicons.dev/icons?i=nextjs"
+  },
+  {
+    "name": "Node.js",
+    "icon": "https://skillicons.dev/icons?i=nodejs"
+  },
+  {
+    "name": "Jest",
+    "icon": "https://skillicons.dev/icons?i=jest"
+  },
+  {
+    "name": "express.js",
+    "icon": "https://skillicons.dev/icons?i=express"
+  },
+  {
+    "name": "Firebase",
+    "icon": "https://skillicons.dev/icons?i=firebase"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "https://skillicons.dev/icons?i=mongodb"
+  },
+  {
+    "name": "Flutter",
+    "icon": "https://skillicons.dev/icons?i=flutter"
+  },
+  {
+    "name": "PHP",
+    "icon": "https://skillicons.dev/icons?i=php"
+  }
+]
