@@ -25,6 +25,8 @@
   gap: 20px;
   position: relative;
   z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 .infoWrap {
   flex-basis: 40%;
@@ -47,6 +49,7 @@
       color: white;
       opacity: 0;
       font-size: 18px;
+      word-break: keep-all;
       animation: infoTextAnimation 0.3s linear forwards; //jsx에 animation-delay 있음
       &:nth-child(1) {
         font-size: 40px;
@@ -113,22 +116,21 @@
   z-index: 1;
   ul {
     li {
-      width: 80px;
-      height: 80px;
       opacity: 0;
       animation: navAnimation 0.1s linear forwards;
       position: relative;
       //   background: rgba(80, 89, 103, 0.55);
       //   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
       a {
-        width: 100%;
-        height: 100%;
+        width: 80px;
+        height: 80px;
         display: flex;
         justify-content: center;
         align-items: center;
         svg {
           animation: shine 2s forwards, blink 1s infinite;
           transition: all 0.1s linear;
+          flex-shrink: 0;
         }
       }
       &:hover {
@@ -156,4 +158,168 @@
   display: flex;
   width: calc(100% - 80px);
   align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .infoWrap {
+    flex-basis: 33%;
+    .infoText span {
+      font-size: 16px;
+      &:nth-child(1) {
+        font-size: 30px;
+      }
+      &:nth-child(3) {
+        font-size: 22px;
+      }
+    }
+  }
+  .contentArea {
+    flex-basis: 67%;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .main {
+    padding: 0 40px;
+    flex-direction: column;
+    overflow: scroll;
+    .infoWrap {
+      // display: none;
+      flex-direction: row;
+      padding: 20px 0 0;
+      justify-content: flex-start;
+      gap: 20px;
+      align-items: center;
+      flex-basis: auto;
+      .profileImage {
+        width: 120px;
+        height: 120px;
+      }
+      .infoText {
+        margin: 0;
+        br {
+          display: none;
+        }
+        span {
+          display: none;
+          &:nth-child(1),
+          &:nth-child(3) {
+            display: block;
+          }
+          &:nth-child(1) {
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+    .contentArea {
+      // flex-basis: 100%;
+      flex-direction: column;
+      overflow: unset;
+      height: fit-content;
+      padding: 0;
+      .navigation {
+        width: 100%;
+        top: 0px;
+        z-index: 2;
+        ul {
+          display: flex;
+          li {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            a {
+              width: 60px;
+              height: 60px;
+            }
+            &::after {
+              position: relative;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              content: attr(data-content);
+              transform: translate(0, 0);
+              color: white;
+            }
+          }
+        }
+      }
+      .content {
+        min-height: unset;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .main {
+    padding: 0 20px;
+    .infoWrap {
+      gap: 10px;
+      .profileImage {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+      }
+      .infoText {
+        span {
+          &:nth-child(3) {
+            font-size: 18px;
+          }
+          &:nth-child(1) {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+    .contentArea {
+      .navigation {
+        ul {
+          li {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            a {
+              width: 50px;
+              height: 50px;
+            }
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+      .content {
+        min-height: unset;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    .infoWrap {
+      .profileImage {
+        width: 50px;
+        height: 50px;
+      }
+      .infoText {
+        span {
+          &:nth-child(3) {
+            font-size: 16px;
+          }
+          &:nth-child(1) {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
 }

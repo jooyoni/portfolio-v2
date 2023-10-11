@@ -48,23 +48,22 @@ function Portfolio() {
           <Swiper
             className={styles.slider}
             onSwiper={setSwiper}
-            slidesPerView={2}
-            centeredSlides
+            slidesPerView={1}
+            effect={'coverflow'}
             modules={[EffectCoverflow, Autoplay]}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
-            speed={1000}
-            effect="coverflow"
-            loop
+            spaceBetween={10}
             coverflowEffect={{
+              depth: 0,
               rotate: 0,
-              stretch: -70,
-              depth: 300,
-              modifier: 2,
               slideShadows: false,
+              stretch: 0,
             }}
+            speed={1000}
+            loop
             onAutoplayTimeLeft={(
               swiper: any,
               timeLeft: number,
@@ -74,6 +73,37 @@ function Portfolio() {
             }}
             onActiveIndexChange={(swiper: any) => {
               setSlideActiveIdx(swiper.realIndex);
+            }}
+            breakpoints={{
+              375: {
+                spaceBetween: 0,
+                slidesPerView: 1.6,
+                centeredSlides: false,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -20,
+                  depth: 300,
+                  modifier: 1,
+                },
+              },
+              600: {
+                centeredSlides: true,
+                slidesPerView: 2,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -40,
+                  depth: 200,
+                  modifier: 2,
+                },
+              },
+              890: {
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -40,
+                  depth: 200,
+                  modifier: 2,
+                },
+              },
             }}
           >
             {portfolio.map((data) => (

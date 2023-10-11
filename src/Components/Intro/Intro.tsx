@@ -20,6 +20,7 @@ function Intro({ renderTime }: IPropsType) {
         <span className={styles.flicker}>o</span>
         <span>m</span>
         <span>e&nbsp;</span>
+        <span className={styles.mobileBreakWord}></span>
         <span className={`${renderTime >= 3 ? styles.fastFlicker : ''}`}>
           T
         </span>
@@ -40,6 +41,8 @@ function Intro({ renderTime }: IPropsType) {
         <span>n</span>
         <span>'</span>
         <span>s&nbsp;</span>
+        <span className={styles.mobileBreakWord}></span>
+
         <span>P</span>
         <span>o</span>
         <span>r</span>

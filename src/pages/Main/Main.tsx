@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from './Main.module.scss';
 import Intro from '../../Components/Intro/Intro';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useNavigate, Outlet } from 'react-router-dom';
 function Main() {
+  const navigate = useNavigate();
   const [renderTime, setRenderTime] = useState(0);
   useEffect(() => {
     if (renderTime >= 7) return;
@@ -55,15 +56,16 @@ function Main() {
             </>
           )}
         </aside>
+
         <section className={styles.contentArea}>
           <nav className={styles.navigation}>
             {renderTime >= 5 && (
               <ul>
-                <li data-content="about">
+                <li data-content="about" onClick={() => navigate('/about')}>
                   <Link to="/about">
                     <svg
-                      width="50px"
-                      height="50px"
+                      width="62.5%"
+                      height="62.5%"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -85,11 +87,15 @@ function Main() {
                     </svg>
                   </Link>
                 </li>
-                <li data-content="portfolio" style={{ animationDelay: '0.1s' }}>
+                <li
+                  data-content="portfolio"
+                  onClick={() => navigate('/portfolio')}
+                  style={{ animationDelay: '0.1s' }}
+                >
                   <Link to="/portfolio">
                     <svg
-                      width="42px"
-                      height="42px"
+                      width="52.5%"
+                      height="52.5%"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -109,11 +115,15 @@ function Main() {
                     </svg>
                   </Link>
                 </li>
-                <li data-content="history" style={{ animationDelay: '0.2s' }}>
+                <li
+                  data-content="history"
+                  onClick={() => navigate('/history')}
+                  style={{ animationDelay: '0.2s' }}
+                >
                   <Link to="/history">
                     <svg
-                      width="44px"
-                      height="44px"
+                      width="55%"
+                      height="55%"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -128,9 +138,13 @@ function Main() {
                     </svg>
                   </Link>
                 </li>
-                <li data-content="comment" style={{ animationDelay: '0.3s' }}>
+                <li
+                  data-content="comment"
+                  onClick={() => navigate('/comment')}
+                  style={{ animationDelay: '0.3s' }}
+                >
                   <Link to="/comment">
-                    <svg width="38px" height="38px" viewBox="0 0 32 32">
+                    <svg width="45%" height="45%" viewBox="0 0 32 32">
                       <g
                         id="Page-1"
                         stroke="none"
