@@ -52,7 +52,7 @@ function Portfolio() {
             effect={'coverflow'}
             modules={[EffectCoverflow, Autoplay]}
             autoplay={{
-              delay: 500000,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             spaceBetween={10}
