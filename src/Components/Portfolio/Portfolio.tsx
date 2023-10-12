@@ -52,7 +52,7 @@ function Portfolio() {
             effect={'coverflow'}
             modules={[EffectCoverflow, Autoplay]}
             autoplay={{
-              delay: 5000,
+              delay: 500000,
               disableOnInteraction: false,
             }}
             spaceBetween={10}
@@ -97,6 +97,8 @@ function Portfolio() {
                 },
               },
               890: {
+                centeredSlides: true,
+                slidesPerView: 2,
                 coverflowEffect: {
                   rotate: 0,
                   stretch: -40,
@@ -151,6 +153,9 @@ function Portfolio() {
           className={`${styles.projectInfoWrap} ${
             isUpdate ? styles.hidden : ''
           }`}
+          onClick={() => {
+            navigate(`/portfolio/${activePortfolio.title}`);
+          }}
         >
           <h3 className={styles.title}>{activePortfolio.title}</h3>
           <span className={styles.duration}>{activePortfolio.duration}</span>

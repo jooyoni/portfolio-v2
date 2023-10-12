@@ -28,15 +28,21 @@
 }
 .slider {
   width: 100%;
+  & > div {
+    transform-style: unset;
+  }
   .slide {
     aspect-ratio: 1/1.2;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
+    display: block;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.9;
+      border-radius: 12px;
     }
   }
 }
