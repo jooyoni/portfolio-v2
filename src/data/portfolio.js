@@ -1,5 +1,19 @@
 let data = [
   {
+    title: 'space-fighter',
+    duration: '2023.08 ~ 2023.09',
+    image: [
+      require('../assets/portfolio/space-fighter/space-fighter01.png'),
+      require('../assets/portfolio/space-fighter/space-fighter02.png'),
+      require('../assets/portfolio/space-fighter/space-fighter03.png'),
+      require('../assets/portfolio/space-fighter/space-fighter04.png'),
+      require('../assets/portfolio/space-fighter/space-fighter05.png'),
+      require('../assets/portfolio/space-fighter/space-fighter06.png'),
+    ],
+    link: '',
+    text: 'socket.io를 활용한 온라인 격투게임입니다. 방 접속, 채팅, 캐릭터 이동, 타격 등의 기능들이 담겨있습니다. socket을 활용한 실시간 데이터 공유 기능을 활용해 보고 싶어 토이 프로젝트로 제작하게 되었습니다. node.js와 React를 이용해 혼자서 작업하였습니다.',
+  },
+  {
     title: 'v-factory',
     duration: '2023.05 ~ 2023.05',
     image: [
