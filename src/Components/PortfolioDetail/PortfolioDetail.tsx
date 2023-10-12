@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SwiperCore from 'swiper';
 function PortfolioDetail() {
+  const [swiper, setSwiper] = useState<SwiperCore>();
   const [selectedPortfolio, setSelectedPortfolio] = useState<IPortfolioType>();
   const { title } = useParams();
 
@@ -38,20 +39,68 @@ function PortfolioDetail() {
               <path
                 d="M6 12L18 12M6 12L12 6M6 12L12 18"
                 stroke="#ffffff"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>
           <section className={styles.projectImagesWrap}>
-            <Swiper slidesPerView={1}>
+            <Swiper slidesPerView={1} onSwiper={setSwiper}>
               {selectedPortfolio.image.map((image, idx) => (
                 <SwiperSlide key={idx} className={styles.imageSlide}>
                   <img src={image} alt={selectedPortfolio.title} />
                 </SwiperSlide>
               ))}
             </Swiper>
+            {selectedPortfolio.image.length >= 2 && (
+              <>
+                {!swiper?.isBeginning && (
+                  <div
+                    className={`${styles.prevBtn} ${styles.sliderControlBtn}`}
+                    onClick={() => swiper?.slidePrev()}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M15 18L9 12L15 6"
+                        stroke="#ffffff"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                )}
+                {!swiper?.isEnd && (
+                  <div
+                    className={`${styles.nextBtn} ${styles.sliderControlBtn}`}
+                    onClick={() => swiper?.slideNext()}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M15 18L9 12L15 6"
+                        stroke="#ffffff"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </>
+            )}
           </section>
           <section className={styles.portfolioDetailInfoWrap}>
             <h3>{selectedPortfolio.title}</h3>
