@@ -36,7 +36,9 @@
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    display: block;
+    &:global(.swiper-slide-active) {
+      transform: translate3d(0, 0, 0) !important;
+    }
     img {
       width: 100%;
       height: 100%;
